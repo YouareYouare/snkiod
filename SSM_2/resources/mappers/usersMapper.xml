@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zoo.dao.IUsersDao">
+
+    <!--验证登录-->
+    <select id="checkLoginFromDB" resultMap="RE_USERMSG">
+        select id,uname,upassword,uidentity,ucode from tb_users where uname=#{uName};
+    </select>
+    <resultMap id="RE_USERMSG" type="com.zoo.bean.Users">
+        <id property="uId" column="id"></id>
+        <result property="uName" column="uname"></result>
+        <result property="uPassword" column="upassword"></result>
+        <result property="uIdentity" column="uidentity"></result>
+        <result property="uCode" column="ucode"></result>
+    </resultMap>
+</mapper>
